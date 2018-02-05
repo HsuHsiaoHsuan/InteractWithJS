@@ -40,7 +40,6 @@ public class MainActivity extends AppCompatActivity {
                         webView.loadUrl("javascript:calledFromAndroid('msg from Android Java')");
                     }
                 });
-
             }
         });
 
