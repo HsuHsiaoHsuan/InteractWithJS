@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+
+        <title>Hello Android</title>
+    </head>
+    <body>
+
+        <h1>Hello Android</h1>
+
+        <p id="mytext">Should "NOT" show me!</p>
+
+        <input type="button" value="Toast" onClick="showAndroidToast('Hello Android! From webpage')" />
+        <br /><br />
+        <input type="button" value="Open Dialog" onClick="openAndroidDialog()" />
+        <br /><br />
+        <input type="button" value="Show Toolbar" onClick="showToolbar(true)" />
+        <br /><br />
+        <input type="button" value="Hide Toolbar" onClick="showToolbar(false)" />
+        <br /><br />
+        <input type="button" value="Lock Back" onClick="lockBackKey(true)" />
+        <br /><br />
+        <input type="button" value="UnLock Back" onClick="lockBackKey(false)" />
+
+        <script language="javascript">
+            // 呼叫 Android 顯示快顯訊息
+            function showAndroidToast(toast) {
+                JsTest.showToast(toast);
+            }
+
+            // 顯示 Android 標題列, showIt: true|false
+            function showToolbar(showIt) {
+                JsTest.showToolbar(showIt);
+            }
+
+            // 呼叫 Android 顯示對話框
+            function openAndroidDialog() {
+                JsTest.openAndroidDialog("title from html", "msg from html");
+            }
+
+            // 鎖住 Android 返回鍵, lockIt: true|false
+            function lockBackKey(lockIt) {
+                JsTest.lockBackKey(lockIt)
+            }
+
+            // 從 Android 傳進來的文字訊息
+            function calledFromAndroid(msg){
+                document.getElementById("mytext").innerHTML = msg;
+            }
+        </script>
+    </body>
+</html>
