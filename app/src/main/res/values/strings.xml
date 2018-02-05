@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">InteractWithJS</string>
+    <string name="send_msg">send msg to WebView</string>
 </resources>

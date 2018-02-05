@@ -18,6 +18,7 @@
     <Button
         android:id="@+id/callJs"
         app:layout_constraintTop_toBottomOf="@+id/my_toolbar"
+        android:text="@string/send_msg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 

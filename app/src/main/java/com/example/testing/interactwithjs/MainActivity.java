@@ -9,6 +9,7 @@ import android.view.View;
 import android.webkit.JavascriptInterface;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.widget.Button;
 import android.widget.Toast;
 
 // http://blog.csdn.net/carson_ho/article/details/64904691
@@ -17,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
 
     private static final String JS_NAME = "JsTest";
     private Toolbar mToolbar;
+    private Button bCallJs;
     private WebView webView;
     private boolean lockBackKey;
 
@@ -27,6 +29,20 @@ public class MainActivity extends AppCompatActivity {
 
         mToolbar = findViewById(R.id.my_toolbar);
         setSupportActionBar(mToolbar);
+
+        bCallJs = findViewById(R.id.callJs);
+        bCallJs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                webView.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        webView.loadUrl("javascript:calledFromAndroid('msg from Android Java')");
+                    }
+                });
+
+            }
+        });
 
         webView = findViewById(R.id.webview);
         WebSettings webSettings = webView.getSettings();
